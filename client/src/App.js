@@ -1,10 +1,13 @@
 import { Outlet,Navigate,Route,Routes,useLocation } from 'react-router-dom';
 import './App.css';
+import { useSelector } from 'react-redux';
 import{Home,Profile,Register,Login,ResetPassword} from './pages/index';
 
+
 function Layout(){
-const user = null;
-const location = useLocation()
+const{ user }= useSelector(state=> state.user);
+const location = useLocation();
+console.log(user)
 
 return user?.token?(
   <Outlet/>
